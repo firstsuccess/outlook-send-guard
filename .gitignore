@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-dev/
+*.log
+.env
+.certs/
+
+# Keep Markdown documentation local; exclude it from Git at any depth.
+*.md
+
+# Local Sites checkout and deployment archives.
+sites/
+
+# Local Sites identity and publication state (not GitHub deployment configuration).
+.openai/

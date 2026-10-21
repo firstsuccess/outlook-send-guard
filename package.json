@@ -1,0 +1,23 @@
+{
+  "name": "monja-outlook-send-guard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "validate:manifest": "node scripts/validate-manifests.mjs",
+    "dev": "node scripts/dev.mjs",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/office-js": "^1.0.0",
+    "esbuild": "^0.25.0",
+    "fs-extra": "^11.4.1",
+    "office-addin-manifest": "^3.0.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

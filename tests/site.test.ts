@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {content}from '../site/content/translations';import {strings,boundedMessage}from '../src/locales/strings';
+test('all languages have complete single-page manual and ten feature rows',()=>{for(const c of Object.values(content)){assert.equal(c.nav.length,10);assert.equal(c.sections.length,10);assert.equal(c.features.length,10);assert.equal(c.sections[5].questions?.length,10);assert.ok(c.sections[7].body.length);assert.ok(c.sections[8].body.length);}});
+test('UI translation key parity',()=>{for(const lang of ['ja','zh-CN']as const)assert.deepEqual(Object.keys(strings[lang]).sort(),Object.keys(strings.en).sort());});
+test('alert size cap preserves indication of truncation',()=>{const m=boundedMessage(['x'.repeat(900)]);assert.equal(m.length,480);assert.ok(m.endsWith('…'));});

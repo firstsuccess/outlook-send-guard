@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xsi:type="MailApp">
+<Id>8be50b54-3f5c-4b88-b26b-9df9b94c0b35</Id><Version>1.0.0.0</Version><ProviderName>First Success G.K.</ProviderName><DefaultLocale>en-US</DefaultLocale>
+<DisplayName DefaultValue="Monja Send Guard"><Override Locale="ja-JP" Value="Monja Send Guard"/><Override Locale="zh-CN" Value="Monja Send Guard"/></DisplayName>
+<Description DefaultValue="Individual installation: manual review only."><Override Locale="ja-JP" Value="利用者導入版：手動確認専用。"/><Override Locale="zh-CN" Value="用户安装版：仅手动检查。"/></Description>
+<IconUrl DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/assets/icon-64.png"/><HighResolutionIconUrl DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/assets/icon-128.png"/><SupportUrl DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/"/>
+<AppDomains><AppDomain>https://outlook-send-guard.mnoda1979.chatgpt.site</AppDomain></AppDomains><Hosts><Host Name="Mailbox"/></Hosts><Requirements><Sets><Set Name="Mailbox" MinVersion="1.12"/></Sets></Requirements>
+<FormSettings><Form xsi:type="ItemEdit"><DesktopSettings><SourceLocation DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/taskpane-user.html"/></DesktopSettings></Form></FormSettings>
+<Permissions>ReadItem</Permissions><Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/><DisableEntityHighlighting>false</DisableEntityHighlighting>
+<VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+<VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+<Requirements><bt:Sets DefaultMinVersion="1.12"><bt:Set Name="Mailbox"/></bt:Sets></Requirements>
+<Hosts><Host xsi:type="MailHost"><DesktopFormFactor><FunctionFile resid="Runtime.Url"/>
+<ExtensionPoint xsi:type="MessageComposeCommandSurface"><OfficeTab id="TabDefault"><Group id="Monja.Group"><Label resid="Group.Label"/><Control xsi:type="Button" id="Monja.Settings"><Label resid="Settings.Label"/><Supertip><Title resid="Settings.Label"/><Description resid="Settings.Description"/></Supertip><Icon><bt:Image size="16" resid="Icon.16"/><bt:Image size="32" resid="Icon.32"/><bt:Image size="80" resid="Icon.80"/></Icon><Action xsi:type="ShowTaskpane"><SourceLocation resid="Taskpane.Url"/><SupportsPinning>true</SupportsPinning></Action></Control></Group></OfficeTab></ExtensionPoint>
+
+</DesktopFormFactor></Host></Hosts>
+<Resources><bt:Images><bt:Image id="Icon.16" DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/assets/icon-16.png"/><bt:Image id="Icon.32" DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/assets/icon-32.png"/><bt:Image id="Icon.80" DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/assets/icon-80.png"/></bt:Images>
+<bt:Urls><bt:Url id="Runtime.Url" DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/commands-user.html"/><bt:Url id="Taskpane.Url" DefaultValue="https://outlook-send-guard.mnoda1979.chatgpt.site/taskpane-user.html"/></bt:Urls>
+<bt:ShortStrings><bt:String id="Group.Label" DefaultValue="Monja Send Guard"/><bt:String id="Settings.Label" DefaultValue="Monja Send Guard"><bt:Override Locale="ja-JP" Value="Monja Send Guard"/><bt:Override Locale="zh-CN" Value="Monja Send Guard"/></bt:String></bt:ShortStrings>
+<bt:LongStrings><bt:String id="Settings.Description" DefaultValue="Configure send warnings and review attachment names."><bt:Override Locale="ja-JP" Value="送信前の警告を設定し、添付ファイル名を確認します。"/><bt:Override Locale="zh-CN" Value="配置发送警告并查看附件名称。"/></bt:String></bt:LongStrings></Resources>
+</VersionOverrides></VersionOverrides></OfficeApp>
