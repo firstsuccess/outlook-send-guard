@@ -8,7 +8,15 @@ test('persist and reload settings',async()=>{const s=defaults();s.domains=['comp
 test('failed saves restore previous in-memory state',async()=>{data[SETTINGS_KEY]={...defaults(),domains:['old.com']};const previous=data[SETTINGS_KEY];failSave=true;await assert.rejects(saveSettings(defaults()));assert.deepEqual(data[SETTINGS_KEY],previous);});
 test('failed first save removes temporary value',async()=>{failSave=true;await assert.rejects(saveSettings(defaults()));assert.equal(data[SETTINGS_KEY],undefined);});
 async function send(){const calls:unknown[]=[];await onMessageSend({completed:(o:unknown)=>calls.push(o)}as any);return calls as {allowEvent:boolean;errorMessage?:string}[];}
-test('clean message completes once and allows send',async()=>{data[SETTINGS_KEY]={...defaults(),domains:['company.com']};const c=await send();assert.deepEqual(c,[{allowEvent:true}]);});
+test('clean message completes once with native confirmation in all locales',async()=>{
+  for(const language of ['ja','en','zh-CN'] as const){
+    (Office.context as any).requirements={isSetSupported:()=>true};
+    data[SETTINGS_KEY]={...defaults(),domains:['company.com'],language};
+    const c=await send();assert.equal(c.length,1);assert.equal(c[0].allowEvent,false);assert.ok(c[0].errorMessage);
+    assert.doesNotMatch(c[0].errorMessage!,/検証できません|could not be checked|无法完成检查/);
+    assert.equal((c[0] as Office.SmartAlertsEventCompletedOptions).errorMessageMarkdown,undefined);
+  }
+});
 test('findings complete once with localized standard alert',async()=>{const c=await send();assert.equal(c.length,1);assert.equal(c[0].allowEvent,false);assert.match(c[0].errorMessage!,/社内ドメイン/);});
 test('read failure is not a passed validation',async()=>{failRead=true;const c=await send();assert.equal(c[0].allowEvent,false);assert.match(c[0].errorMessage!,/検証できません/);});
 test('future schema does not silently fall back',async()=>{data[SETTINGS_KEY]={schemaVersion:2};const c=await send();assert.equal(c[0].allowEvent,false);});

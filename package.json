@@ -9,7 +9,9 @@
     "test": "tsx --test tests/*.test.ts",
     "validate:manifest": "node scripts/validate-manifests.mjs",
     "dev": "node scripts/dev.mjs",
-    "check": "npm run typecheck && npm test && npm run build"
+    "check": "npm run typecheck && npm test && npm run build",
+    "build:sites": "npm run build && node scripts/build-sites-worker.mjs",
+    "test:counter": "node --test tests/counter.test.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

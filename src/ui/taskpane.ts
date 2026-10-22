@@ -19,12 +19,10 @@ function render(){
     let result:string,hasWarnings:boolean;try{const reviewed=await reviewDraftResult(settings,lang);result=reviewed.text;hasWarnings=reviewed.hasWarnings;}catch{result=t.draftError;hasWarnings=true;}
     if(generation!==itemGeneration)return;
     warningStatus=hasWarnings?result:'';
-    if(managed){status=result;}else{
-      status='';render();
-      try{await showReviewPopup(result,lang,hasWarnings);}catch{status=result;}
-    }
+    status='';render();
+    try{await showReviewPopup(result,lang,hasWarnings);}catch{status=result;}
     if(generation!==itemGeneration)return;
-    checking=false;render();document.getElementById(managed||status?'status':id)?.focus();
+    checking=false;render();document.getElementById(status?'status':id)?.focus();
   };
   }
   addReviewButton('review-draft-top');
@@ -45,6 +43,8 @@ function render(){
   addReviewButton('review-draft');
   const p=el('p',status||(!available?t.preview:''));p.id='status';p.className=status&&status===warningStatus?'warning-result':'';p.tabIndex=-1;p.setAttribute('role','status');p.setAttribute('aria-live','polite');
   const a=el('a',t.help);a.href=__WEBSITE_URL__;a.target='_blank';a.rel='noopener noreferrer';
+  const footer=el('footer');footer.className='publisher';el('span','By First Success G.K. ',footer);
+  const publisher=el('a','https://first-success.com',footer);publisher.href='https://first-success.com';publisher.target='_blank';publisher.rel='noopener noreferrer';
 }
 declare const __WEBSITE_URL__:string;
 declare const __VERSION__:string;

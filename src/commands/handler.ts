@@ -22,6 +22,7 @@ export async function onMessageSend(event:Office.AddinCommands.Event):Promise<vo
     const settings=loadSettings();lang=resolveLanguage(settings,Office.context.displayLanguage);
     const findings=validate(await readMail(),settings);
     const headings=findings.map(f=>f.key==='unresolved'?strings[lang].failed:strings[lang][f.key]);
-    complete(findings.length?warningOptions(boundedMessage([headings.join(' / '),...messages(findings.filter(f=>f.details.length>0),lang)])):{allowEvent:true});
+    // PromptUser presents Outlook's native Send Anyway / Don't Send choice on every send.
+    complete(findings.length?warningOptions(boundedMessage([headings.join(' / '),...messages(findings.filter(f=>f.details.length>0),lang)])):{allowEvent:false,errorMessage:strings[lang].checked});
   } catch { complete(warningOptions(strings[lang].failed)); }
 }

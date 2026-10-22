@@ -1,0 +1,4 @@
+CREATE TABLE site_counter (
+  id INTEGER PRIMARY KEY CHECK (id = 1),
+  views INTEGER NOT NULL DEFAULT 0 CHECK (views >= 0)
+);
