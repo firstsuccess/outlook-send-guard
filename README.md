@@ -64,10 +64,6 @@ Microsoft 365 OutlookのWeb版・対応するPC版で、送信前の確認を支
 
 詳しい[プライバシー](https://outlook-send-guard.mnoda1979.chatgpt.site/#privacy)、[利用条件](https://outlook-send-guard.mnoda1979.chatgpt.site/#terms)、[サポート](https://outlook-send-guard.mnoda1979.chatgpt.site/#support)は製品サイトの同一ページにあります。不具合報告にはOutlookの種類・バージョンと警告項目を添え、メール本文・宛先・添付などの機密情報は送らないでください。
 
-## 検証状況
-
-サイトは公開済みです。Web版の修正後に「動作した」との利用者報告がありますが、クライアントのビルド番号や詳細なテストケースは提供されていません。Codexが実機テストを実施した証拠ではなく、全環境・全機能の検証完了を意味しません。ホスティングには未確認事項が残ります。2026-10-21のリリース向け表示の承認も、実機テストの証拠とは別です。最新の実施内容・未確認事項はSTATUS (`docs/STATUS.md`)、承認の記録はRELEASE-DECISION (`docs/RELEASE-DECISION.md`)を参照してください。
-
 ## 開発
 
 ```powershell
@@ -153,10 +149,6 @@ Domains, warnings and language settings are stored in Microsoft RoamingSettings.
 
 [Privacy](https://outlook-send-guard.mnoda1979.chatgpt.site/#privacy), [terms](https://outlook-send-guard.mnoda1979.chatgpt.site/#terms) and [support](https://outlook-send-guard.mnoda1979.chatgpt.site/#support) are on the same product page. For issue reports, provide Outlook type, version and warning category. Do not send message bodies, recipient addresses, attachments or confidential information.
 
-## Verification status
-
-The website is published. A user reported that Outlook on the web worked after a fix, but supplied no client build or detailed test cases. This is user-reported evidence, not a device test performed by Codex or proof of complete coverage across clients and features. Hosting verification still has open items. Release-presentation authorization dated 2026-10-21 is also separate from device-test evidence. See STATUS (`docs/STATUS.md`) for actual checks and open items, and RELEASE-DECISION (`docs/RELEASE-DECISION.md`) for authorization.
-
 ## Development
 
 ```powershell
@@ -241,10 +233,6 @@ npm run validate:manifest
 域名、警告与语言设置保存在Microsoft RoamingSettings。网站语言选择保存在浏览器localStorage。加载项免费，Microsoft 365等订阅费用另计。请遵守组织策略及适用法律，自行进行最终确认。
 
 [隐私政策](https://outlook-send-guard.mnoda1979.chatgpt.site/#privacy)、[使用条款](https://outlook-send-guard.mnoda1979.chatgpt.site/#terms)与[支持](https://outlook-send-guard.mnoda1979.chatgpt.site/#support)位于产品网站的同一页面。报告问题时请提供Outlook类型、版本和警告项目，不要发送正文、收件人地址、附件或机密信息。
-
-## 验证状态
-
-网站已发布。修复后有用户反馈Outlook网页版可以正常运行，但未提供客户端构建号或详细测试用例。这属于用户反馈，不代表Codex执行过实机测试，也不证明所有客户端及功能已全部验证。托管验证仍有未确认事项。2026-10-21的发布展示授权也与实机测试证据分开记录。实际检查及待确认事项见STATUS (`docs/STATUS.md`)，授权记录见RELEASE-DECISION (`docs/RELEASE-DECISION.md`)。
 
 ## 开发
 
